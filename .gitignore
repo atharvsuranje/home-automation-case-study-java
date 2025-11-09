@@ -1,0 +1,27 @@
+/.metadata/
+.settings/
+.classpath
+*.launch
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# Build folders
+bin/
+build/
+dist/
+target/
+out/
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
