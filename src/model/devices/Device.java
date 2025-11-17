@@ -10,9 +10,9 @@ public abstract class Device {
 	private LocalDateTime lastStateChangedTime;
 	private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
-	public Device(String name) {
+	public Device(String name) { 
 		this.name = name;
-		this.isOn=false;
+		
 		this.lastStateChangedTime=null;
 	}
 
@@ -76,7 +76,7 @@ public abstract class Device {
 	@Override
 	public String toString() {
         return name + " | State: " + (isOn ? "ON" : "OFF") +
-               " | Since: " + getLastChangedTime() +
-               " | Active For: " + timeInCurrentState();
+          " | Since: " + getLastChangedTime() +
+          " | Active For: " + timeInCurrentState();
     }
 }
