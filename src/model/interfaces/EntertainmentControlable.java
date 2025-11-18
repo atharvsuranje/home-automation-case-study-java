@@ -1,9 +1,9 @@
 package model.interfaces;
 
 public interface EntertainmentControlable {
-	void volumeUp();
-    void volumeDown();
-    void nextChannel();
-    void previousChannel();
-    void switchChannel(int channel);
+	boolean volumeUp();
+    boolean volumeDown();
+    boolean nextChannel();
+    boolean previousChannel();
+    boolean switchChannel(int channel);
 }

@@ -1,8 +1,10 @@
 package model.devices;
 
 import model.interfaces.EntertainmentControlable;
+import model.interfaces.markup.BedroomAllowable;
+import model.interfaces.markup.LivingAreaAllowable;
 
-public class TV extends Device implements EntertainmentControlable {
+public class TV extends Device implements EntertainmentControlable, BedroomAllowable, LivingAreaAllowable {
 	
 	int volumeLevel;
 	int channel;
@@ -47,44 +49,54 @@ public class TV extends Device implements EntertainmentControlable {
 	}
 
 	@Override
-	public void volumeUp() {
+	public boolean volumeUp() {
 		if (isMuted) {
 			isMuted = false;
 		}
 		if (volumeLevel < 100) {
 			volumeLevel++;
 		}
-		System.out.println("Volume Increased to " + volumeLevel);
+		return true;
 		
 	}
 
 	@Override
-	public void volumeDown() {
+	public boolean volumeDown() {
 		if (volumeLevel > 0) {
 			volumeLevel--;
 		}
-		System.out.println("Volume decreased to " + volumeLevel);
+		return true;
 		
 	}
 
 	@Override
-	public void nextChannel() {
+	public boolean nextChannel() {
 		channel++;
-		System.out.println("Channel change to " + channel);
+		return true;
 		
 	}
 
 	@Override
-	public void previousChannel() {
+	public boolean previousChannel() {
 		channel--;
 		System.out.println("Channel change to " + channel);
+		return true;
 		
 	}
 
 	@Override
-	public void switchChannel(int newchannel) {
-		
-		
+	public boolean switchChannel(int newChannel) {
+		if (newChannel > 0) {
+			channel = newChannel;
+		}
+		return true;
 	}
 	
+	@Override
+	public String toString() {
+		return super.toString() +
+				" | Volume: " + volumeLevel +
+		        " | Channel: " + channel +
+		        " | Muted: " + (isMuted ? "YES" : "NO");
+	}
 }
