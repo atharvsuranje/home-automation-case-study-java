@@ -12,7 +12,7 @@ public abstract class Device {
 
 	public Device(String name) { 
 		this.name = name;
-		
+		this.isOn=false;
 		this.lastStateChangedTime=null;
 	}
 
